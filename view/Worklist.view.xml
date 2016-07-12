@@ -1,0 +1,72 @@
+<mvc:View controllerName="workspace.controller.Worklist" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<Page id="page2" title="Draft Bill Application">
+		<content> 
+			<Table id="idTable"  items="{}" mode="MultiSelect" selectionChange="onPress">
+				<columns>
+					<Column id="idDb">
+						<Label text="Draft Bill" design="Bold" tooltip="Draft Bill"/>
+					</Column>
+					<Column id="idMatters" hAlign="Center">
+						<Label text="Matters" design="Bold"  tooltip="Matters"/>
+					</Column>
+					<Column id="idBP" hAlign="Center">
+						<Label text="Billing partner" design="Bold"  tooltip="Billing partner"/>
+					</Column>
+					<Column id="idSC" hAlign="Center">
+						<Label text="Soft Cost" design="Bold"  tooltip="Soft Cost"/>
+					</Column>
+					<Column id="idFee" hAlign="Center">
+						<Label text="Fee" design="Bold"  tooltip="Fee"/>
+					</Column>
+					<Column id="idHC" hAlign="Center">
+						<Label text="Hard Cost" design="Bold"  tooltip="Hard Cost"/>
+					</Column>
+					<Column id="idNA" hAlign="Center">
+						<Label text="Net Amount" design="Bold"  tooltip="Net Amount"/>
+					</Column>
+					<Column id="idCy" hAlign="Center">
+						<Label text="Currency" design="Bold"  tooltip="Currency"/>
+					</Column>
+					<Column id="idCOutBy" hAlign="Center">
+						<Label text="CheckOut By" design="Bold"  tooltip="Check-Out By"/>
+					</Column>
+					<Column id="idCOutAt" hAlign="Center" demandPopin="true" popinDisplay="Inline">
+						<Label text="CheckOut At" design="Bold"  tooltip="Check-Out At"/>
+					</Column>
+					<Column id="idC" hAlign="Center" >
+						<Label text="Comments" design="Bold"  tooltip="Comments"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem id="idColumnListItem" type="Active">
+						<cells>
+							<Text text="{Vbeln}"/>
+							<Text text="{Pspid}"/>
+							<Text text="{Bname}"/>
+							<Text text="{NetwrSc}"/>
+							<Text text="{NetwrFee}"/>
+							<Text text="{NetwrHc}"/>
+							<Text text="{Netwr}"/>
+							<Text text="{Waers}"/>
+							<Text text="{Checkoutby}"/>
+							<Text text="{Checkoutat}"/>
+							<Input value="{Comments}" enabled="false"/>  
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<footer>
+			<Toolbar id="idFooter">
+				<ToolbarSpacer/>
+				<Button id="idCheckInButton" text="{i18n>checkInButtonText}" type="Accept" press="onCheckInOut"/>
+				<Button id="idCheckOutButton" type="Reject" text="{i18n>checkOutButtonText}" press="onCheckInOut"/>
+				<Button id="idRefreshButton" type="Emphasized" text="{i18n>refreshButtonText}" press="refreshModel"/>
+			</Toolbar>
+		</footer>
+		<dependents>
+			<core:Fragment fragmentName="workspace.view.busyDialog" type="XML" />
+		</dependents>
+	</Page>
+</mvc:View>
